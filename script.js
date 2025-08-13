@@ -250,11 +250,25 @@ function initGlitchEffect() {
     
     glitchElements.forEach(element => {
         element.addEventListener('mouseenter', () => {
-            element.style.animation = 'glitch 0.3s ease infinite';
+            element.classList.add('glitching');
+            
+            // Keep shake but add glitch fog
+            const titleLines = element.querySelectorAll('.glitch-text, .glitch-text-alt');
+            titleLines.forEach((line, index) => {
+                const delay = index === 1 ? '0.1s' : '';
+                line.style.animation = `shake 0.2s infinite ${delay}, glitchFog 0.3s ease infinite`;
+            });
         });
         
         element.addEventListener('mouseleave', () => {
-            element.style.animation = '';
+            element.classList.remove('glitching');
+            
+            // Restore normal shake
+            const titleLines = element.querySelectorAll('.glitch-text, .glitch-text-alt');
+            titleLines.forEach((line, index) => {
+                const delay = index === 1 ? '0.1s' : '';
+                line.style.animation = `shake 0.5s infinite ${delay}`;
+            });
         });
     });
 }
@@ -262,6 +276,63 @@ function initGlitchEffect() {
 // Add glitch animation
 const style = document.createElement('style');
 style.textContent = `
+    .glitching {
+        filter: blur(0.3px);
+    }
+    
+    @keyframes glitchFog {
+        0%, 100% {
+            text-shadow: 
+                0.05em 0 0 rgba(255, 0, 0, 0.75),
+                -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+                0.025em 0.05em 0 rgba(0, 0, 255, 0.75),
+                0 0 10px rgba(255, 0, 255, 0.5),
+                0 0 20px rgba(0, 255, 255, 0.3),
+                0 0 30px rgba(255, 255, 0, 0.2);
+            filter: blur(0.5px) contrast(1.2);
+        }
+        20% {
+            text-shadow: 
+                -0.05em 0.025em 0 rgba(255, 0, 0, 0.75),
+                0.05em 0.025em 0 rgba(0, 255, 0, 0.75),
+                -0.025em -0.05em 0 rgba(0, 0, 255, 0.75),
+                0 0 15px rgba(255, 0, 255, 0.6),
+                0 0 25px rgba(0, 255, 255, 0.4),
+                0 0 35px rgba(255, 255, 0, 0.3);
+            filter: blur(0.8px) contrast(1.5) brightness(1.1);
+        }
+        40% {
+            text-shadow: 
+                0.05em 0.05em 0 rgba(255, 0, 0, 0.75),
+                0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+                -0.05em 0 0 rgba(0, 0, 255, 0.75),
+                0 0 20px rgba(255, 0, 255, 0.7),
+                0 0 30px rgba(0, 255, 255, 0.5),
+                0 0 40px rgba(255, 255, 0, 0.4);
+            filter: blur(0.3px) contrast(1.8) brightness(1.2);
+        }
+        60% {
+            text-shadow: 
+                -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                -0.025em 0.05em 0 rgba(0, 255, 0, 0.75),
+                0.05em 0.025em 0 rgba(0, 0, 255, 0.75),
+                0 0 12px rgba(255, 0, 255, 0.5),
+                0 0 22px rgba(0, 255, 255, 0.3),
+                0 0 32px rgba(255, 255, 0, 0.2);
+            filter: blur(1px) contrast(1.3);
+        }
+        80% {
+            text-shadow: 
+                0.025em -0.05em 0 rgba(255, 0, 0, 0.75),
+                -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                0.025em 0.025em 0 rgba(0, 0, 255, 0.75),
+                0 0 18px rgba(255, 0, 255, 0.8),
+                0 0 28px rgba(0, 255, 255, 0.6),
+                0 0 38px rgba(255, 255, 0, 0.4);
+            filter: blur(0.6px) contrast(1.6) brightness(1.15);
+        }
+    }
+    
     @keyframes glitch {
         0%, 100% {
             text-shadow: 
