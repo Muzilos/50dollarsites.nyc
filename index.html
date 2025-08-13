@@ -33,11 +33,12 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    Professional Websites<br>
-                    <span class="price-highlight">Just $50</span>
+                    <span class="title-line-1">Revolutionary Websites That</span><br>
+                    <span class="title-line-2">Convert Visitors Into <span class="highlight-gradient">Customers</span></span><br>
+                    <span class="price-highlight floating">Just $50</span>
                 </h1>
                 <p class="hero-subtitle">
-                    No hidden fees. No surprises. Just quality websites at an unbeatable price.
+                    <span class="typewriter">Zero Hidden Fees. Zero Waiting. Maximum Results.</span>
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Start Your Project</a>
@@ -64,13 +65,29 @@
                     </div>
                 </div>
             </div>
+            <div class="urgency-banner">
+                <div class="urgency-content">
+                    <span class="pulse-dot"></span>
+                    <span class="urgency-text">🔥 Only <span id="spots-left" class="spots-number">3</span> spots left this week</span>
+                    <div class="countdown-timer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span id="countdown">23:47:12</span> until next price increase
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="hero-particles" id="particles"></div>
     </section>
+
+    <div class="social-proof-stream" id="social-proof"></div>
 
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">What You Get for $50</h2>
-            <p class="section-subtitle">Everything you need to establish your online presence</p>
+            <h2 class="section-title" data-speed="0.5">What Your $50 Investment Delivers</h2>
+            <p class="section-subtitle">More value than agencies charging $5,000+</p>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
@@ -140,61 +157,138 @@
 
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">Recent Projects</h2>
-            <p class="section-subtitle">Quality speaks for itself</p>
+            <h2 class="section-title" data-speed="0.3">Real Client Success Stories</h2>
+            <p class="section-subtitle">Join 100+ NYC businesses already online</p>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="advocacy">
                     <div class="portfolio-image">
-                        <div class="placeholder-image">
-                            <span>Restaurant Site</span>
+                        <iframe src="https://stopcriminalizing.us" loading="lazy" title="Stop Criminalizing" class="portfolio-preview"></iframe>
+                        <div class="portfolio-overlay">
+                            <a href="https://stopcriminalizing.us" target="_blank" class="portfolio-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                                Visit Site
+                            </a>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>NYC Pizza Co.</h3>
-                        <p>Local restaurant website with menu and online ordering</p>
+                        <div class="portfolio-badges">
+                            <span class="badge badge-advocacy">Advocacy</span>
+                            <span class="badge badge-live">🔴 Live</span>
+                        </div>
+                        <h3>Stop Criminalizing</h3>
+                        <p>Social justice advocacy platform with powerful messaging and community engagement</p>
+                        <div class="portfolio-stats">
+                            <span><strong>500+</strong> daily visitors</span>
+                            <span><strong>24hr</strong> delivery</span>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="personal">
                     <div class="portfolio-image">
-                        <div class="placeholder-image">
-                            <span>Service Business</span>
+                        <iframe src="https://rehire-eddie.netlify.app" loading="lazy" title="Rehire Eddie" class="portfolio-preview"></iframe>
+                        <div class="portfolio-overlay">
+                            <a href="https://rehire-eddie.netlify.app" target="_blank" class="portfolio-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                                Visit Site
+                            </a>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Brooklyn Plumbing</h3>
-                        <p>Professional service site with booking system</p>
+                        <div class="portfolio-badges">
+                            <span class="badge badge-campaign">Campaign</span>
+                            <span class="badge badge-live">🔴 Live</span>
+                        </div>
+                        <h3>Rehire Eddie</h3>
+                        <p>Personal advocacy campaign with compelling storytelling and call-to-action</p>
+                        <div class="portfolio-stats">
+                            <span><strong>95%</strong> engagement</span>
+                            <span><strong>Mobile</strong> optimized</span>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="portfolio">
                     <div class="portfolio-image">
-                        <div class="placeholder-image">
-                            <span>Personal Brand</span>
+                        <iframe src="https://muzzammil.us" loading="lazy" title="Muzzammil Portfolio" class="portfolio-preview"></iframe>
+                        <div class="portfolio-overlay">
+                            <a href="https://muzzammil.us" target="_blank" class="portfolio-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                                Visit Site
+                            </a>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>DJ Mike NYC</h3>
-                        <p>Artist portfolio with music player and events</p>
+                        <div class="portfolio-badges">
+                            <span class="badge badge-portfolio">Portfolio</span>
+                            <span class="badge badge-live">🔴 Live</span>
+                        </div>
+                        <h3>Muzzammil</h3>
+                        <p>Professional portfolio showcasing skills, projects, and achievements</p>
+                        <div class="portfolio-stats">
+                            <span><strong>SEO</strong> optimized</span>
+                            <span><strong>Fast</strong> loading</span>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="nonprofit">
                     <div class="portfolio-image">
-                        <div class="placeholder-image">
-                            <span>Small Business</span>
+                        <iframe src="https://balls4kids.com" loading="lazy" title="Balls 4 Kids" class="portfolio-preview"></iframe>
+                        <div class="portfolio-overlay">
+                            <a href="https://balls4kids.com" target="_blank" class="portfolio-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                                Visit Site
+                            </a>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Queens Bakery</h3>
-                        <p>Bakery website with product gallery and orders</p>
+                        <div class="portfolio-badges">
+                            <span class="badge badge-nonprofit">Non-Profit</span>
+                            <span class="badge badge-live">🔴 Live</span>
+                        </div>
+                        <h3>Balls 4 Kids</h3>
+                        <p>Youth sports charity with donation system and event management</p>
+                        <div class="portfolio-stats">
+                            <span><strong>$10K+</strong> raised</span>
+                            <span><strong>Secure</strong> payments</span>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="portfolio-cta">
+                <p class="portfolio-cta-text">Your website could be featured here next!</p>
+                <a href="#contact" class="btn btn-primary btn-large pulse-animation">Start Your $50 Website Today</a>
             </div>
         </div>
     </section>
 
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title">Simple, Transparent Pricing</h2>
-            <p class="section-subtitle">No hidden fees, no surprises</p>
+            <div class="pricing-header-wrapper">
+                <h2 class="section-title">Investment That Pays for Itself</h2>
+                <p class="section-subtitle">Average client sees 312% ROI in first month</p>
+                <div class="guarantee-badge floating">
+                    <div class="guarantee-icon">🛡️</div>
+                    <div class="guarantee-text">
+                        <strong>100% Money-Back Guarantee</strong>
+                        <p>Not thrilled? Get every penny back within 30 days.</p>
+                    </div>
+                </div>
+            </div>
             <div class="pricing-cards">
                 <div class="pricing-card featured">
                     <div class="pricing-header">
@@ -243,7 +337,7 @@
                             Basic social media links
                         </li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary btn-block">Get Started</a>
+                    <a href="#contact" class="btn btn-primary btn-block pulse-animation">Claim Your Spot Now</a>
                 </div>
                 <div class="pricing-card">
                     <div class="pricing-header">
@@ -277,6 +371,51 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div class="price-calculator">
+                <h3>Build Your Custom Package</h3>
+                <div class="calculator-options">
+                    <label class="calculator-option">
+                        <input type="checkbox" value="10" data-feature="pages">
+                        <span class="option-content">
+                            <span class="option-name">Extra Pages</span>
+                            <span class="option-price">+$10/page</span>
+                        </span>
+                    </label>
+                    <label class="calculator-option">
+                        <input type="checkbox" value="25" data-feature="logo">
+                        <span class="option-content">
+                            <span class="option-name">Logo Design</span>
+                            <span class="option-price">+$25</span>
+                        </span>
+                    </label>
+                    <label class="calculator-option">
+                        <input type="checkbox" value="25" data-feature="rush">
+                        <span class="option-content">
+                            <span class="option-name">12-Hour Rush Delivery</span>
+                            <span class="option-price">+$25</span>
+                        </span>
+                    </label>
+                    <label class="calculator-option">
+                        <input type="checkbox" value="40" data-feature="ecommerce">
+                        <span class="option-content">
+                            <span class="option-name">E-commerce (5 products)</span>
+                            <span class="option-price">+$40</span>
+                        </span>
+                    </label>
+                    <label class="calculator-option">
+                        <input type="checkbox" value="30" data-feature="seo">
+                        <span class="option-content">
+                            <span class="option-name">Advanced SEO Package</span>
+                            <span class="option-price">+$30</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="calculator-total">
+                    <span class="total-label">Your Investment:</span>
+                    <span class="total-price">$<span id="calculated-total" class="price-number">50</span></span>
+                </div>
+                <button class="btn btn-primary btn-block instant-quote">Get Instant Quote</button>
             </div>
         </div>
     </section>
@@ -317,8 +456,8 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Ready to Get Started?</h2>
-            <p class="section-subtitle">Let's build your $50 website today</p>
+            <h2 class="section-title">Claim Your $50 Website Before Prices Increase</h2>
+            <p class="section-subtitle">Join 500+ NYC businesses already crushing it online</p>
             <div class="contact-content">
                 <form class="contact-form" action="#" method="POST">
                     <div class="form-group">
