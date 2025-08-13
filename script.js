@@ -84,14 +84,14 @@ function initSocialProof() {
     if (!socialProofDiv) return;
     
     const proofs = [
-        { name: 'Brooklyn Bakery', text: 'just launched their new site' },
-        { name: 'Manhattan Fitness', text: 'increased conversions by 240%' },
-        { name: 'Queens Auto Repair', text: 'got their site in 24 hours' },
+        { name: 'Brooklyn Bakery', text: 'loves their professional design' },
+        { name: 'Manhattan Fitness', text: 'got exactly what they needed' },
+        { name: 'Local Coffee Shop', text: 'got their site in 24 hours' },
         { name: 'Bronx Pizza', text: 'loves their mobile-friendly design' },
-        { name: 'Staten Island Salon', text: 'doubled their bookings' },
-        { name: 'NYC Plumbing', text: 'ranks #1 on Google now' },
-        { name: 'Brooklyn Coffee', text: 'saw 5x more traffic' },
-        { name: 'Manhattan Law Firm', text: 'closed 3 new clients this week' }
+        { name: 'Staten Island Salon', text: 'thrilled with the quality' },
+        { name: 'NYC Services', text: 'highly recommends our work' },
+        { name: 'Brooklyn Boutique', text: 'exceeded their expectations' },
+        { name: 'Small Business Owner', text: 'best value they ever found' }
     ];
     
     const proofContent = document.createElement('div');
@@ -201,7 +201,13 @@ function initFormHandling() {
         button.textContent = 'Sending...';
         button.disabled = true;
         
-        // Simulate form submission
+        // Send to email
+        const subject = `New Website Request from ${data.name}`;
+        const body = `Name: ${data.name}%0D%0AEmail: ${data.email}%0D%0ABusiness: ${data.business}%0D%0AWebsite Type: ${data['website-type']}%0D%0A%0D%0AMessage:%0D%0A${data.message}`;
+        
+        window.location.href = `mailto:50dollarsites@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        
+        // Show success message
         setTimeout(() => {
             button.textContent = '✓ Message Sent!';
             button.style.background = 'linear-gradient(135deg, #00d084 0%, #00a06a 100%)';
@@ -213,7 +219,7 @@ function initFormHandling() {
                 button.style.background = '';
                 button.disabled = false;
             }, 3000);
-        }, 1500);
+        }, 500);
     });
 }
 
@@ -244,10 +250,11 @@ function initGlitchEffect() {
     
     glitchElements.forEach(element => {
         element.addEventListener('mouseenter', () => {
-            element.style.animation = 'glitch 0.3s ease';
-            setTimeout(() => {
-                element.style.animation = '';
-            }, 300);
+            element.style.animation = 'glitch 0.3s ease infinite';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            element.style.animation = '';
         });
     });
 }
