@@ -346,7 +346,7 @@ body::before {
 
 .price-highlight {
     display: inline-block;
-    background: linear-gradient(135deg, #00C851 0%, #4CAF50 50%, #2E7D32 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 50%, #00C851 100%);
     color: white;
     padding: 0.8rem 2rem;
     font-size: clamp(2rem, 5vw, 2.5rem);
@@ -357,47 +357,34 @@ body::before {
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 12px;
-    
-    /* Clean green glow effects */
-    box-shadow: 
-        0 4px 20px rgba(76, 175, 80, 0.4),
-        0 0 40px rgba(0, 200, 81, 0.3),
-        inset 0 2px 10px rgba(255, 255, 255, 0.2);
-    
-    animation: gentlePulse 3s ease-in-out infinite;
-}
-
-.price-highlight:hover {
     transform: scale(1.08);
-    background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 50%, #00C851 100%);
+    
+    /* Enhanced green glow effects */
     box-shadow: 
         0 6px 30px rgba(76, 175, 80, 0.6),
         0 0 60px rgba(0, 200, 81, 0.5),
         inset 0 3px 15px rgba(255, 255, 255, 0.3);
+    
     animation: gentlePulse 2s ease-in-out infinite;
 }
 
-.price-highlight:hover::before {
-    opacity: 1;
-    transform: translateX(-50%) scale(1.2) rotate(10deg);
-    background: linear-gradient(45deg, #ffff00 0%, #ff006e 30%, #00ffcc 60%, #ffff00 100%);
-    background-size: 200% 200%;
-    animation: crescentPulse 0.8s ease-in-out infinite, crescentExplosion 0.5s ease-in-out infinite, gradientShift 1s ease-in-out infinite;
-    
+.price-highlight:hover {
+    transform: scale(1.12);
     box-shadow: 
-        0 0 40px rgba(255, 255, 0, 1),
-        0 0 80px rgba(255, 0, 110, 1),
-        0 0 120px rgba(0, 255, 204, 0.8);
+        0 8px 40px rgba(76, 175, 80, 0.7),
+        0 0 80px rgba(0, 200, 81, 0.6),
+        inset 0 4px 20px rgba(255, 255, 255, 0.4);
 }
+
 
 
 @keyframes gentlePulse {
     0%, 100% { 
-        transform: scale(1);
+        transform: scale(1.08);
         filter: brightness(1);
     }
     50% { 
-        transform: scale(1.02);
+        transform: scale(1.1);
         filter: brightness(1.1);
     }
 }
@@ -419,89 +406,8 @@ body::before {
     75% { background-position: 0% 100%; }
 }
 
-.price-highlight::before {
-    content: '';
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 140%;
-    height: 80%;
-    background: linear-gradient(45deg, #ffff00 0%, #ff006e 50%, #ffff00 100%);
-    z-index: -1;
-    opacity: 0.8;
-    
-    /* Upside-down pointy crescent */
-    clip-path: polygon(
-        0% 0%,
-        10% 30%, 
-        20% 50%, 
-        30% 65%, 
-        40% 75%, 
-        50% 80%, 
-        60% 75%, 
-        70% 65%, 
-        80% 50%, 
-        90% 30%, 
-        100% 0%, 
-        85% 15%, 
-        70% 25%, 
-        50% 30%, 
-        30% 25%, 
-        15% 15%
-    );
-    
-    /* Glowing effects */
-    box-shadow: 
-        0 0 20px rgba(255, 255, 0, 0.8),
-        0 0 40px rgba(255, 0, 110, 0.6),
-        0 0 60px rgba(255, 255, 0, 0.4);
-    
-    animation: crescentPulse 3s ease-in-out infinite, crescentGlow 2s ease-in-out infinite alternate;
-}
 
-@keyframes crescentPulse {
-    0%, 100% { 
-        transform: translateX(-50%) scale(1);
-        opacity: 0.8;
-    }
-    50% { 
-        transform: translateX(-50%) scale(1.1);
-        opacity: 1;
-    }
-}
 
-@keyframes crescentGlow {
-    0% { 
-        filter: brightness(1) saturate(1);
-        box-shadow: 
-            0 0 20px rgba(255, 255, 0, 0.8),
-            0 0 40px rgba(255, 0, 110, 0.6),
-            0 0 60px rgba(255, 255, 0, 0.4);
-    }
-    100% { 
-        filter: brightness(1.3) saturate(1.5);
-        box-shadow: 
-            0 0 30px rgba(255, 255, 0, 1),
-            0 0 60px rgba(255, 0, 110, 0.8),
-            0 0 90px rgba(255, 255, 0, 0.6);
-    }
-}
-
-@keyframes crescentExplosion {
-    0%, 100% { 
-        transform: translateX(-50%) scale(1.2) rotate(10deg);
-    }
-    25% { 
-        transform: translateX(-50%) scale(1.2) rotate(10deg) translateY(-2px);
-    }
-    50% { 
-        transform: translateX(-50%) scale(1.25) rotate(12deg) translateY(2px);
-    }
-    75% { 
-        transform: translateX(-50%) scale(1.2) rotate(8deg) translateY(-1px);
-    }
-}
 
 
 @keyframes glowPulse {
@@ -546,7 +452,7 @@ body::before {
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     margin-bottom: 2rem;
     animation: fadeInUp 0.8s ease-out 0.4s both;
@@ -1638,7 +1544,7 @@ body::before {
     .hero-subtitle {
         font-size: clamp(1.1rem, 4vw, 1.4rem);
         margin-bottom: 2.5rem;
-        max-width: 85%;
+        /* max-width: 85%; */
         margin-left: auto;
         margin-right: auto;
         line-height: 1.3;

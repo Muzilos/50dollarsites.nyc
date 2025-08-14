@@ -84,14 +84,14 @@ function initSocialProof() {
     if (!socialProofDiv) return;
     
     const proofs = [
-        { name: 'Brooklyn Bakery', text: 'loves their professional design' },
-        { name: 'Manhattan Fitness', text: 'got exactly what they needed' },
-        { name: 'Local Coffee Shop', text: 'got their site in 24 hours' },
-        { name: 'Bronx Pizza', text: 'loves their mobile-friendly design' },
-        { name: 'Staten Island Salon', text: 'thrilled with the quality' },
-        { name: 'NYC Services', text: 'highly recommends our work' },
-        { name: 'Brooklyn Boutique', text: 'exceeded their expectations' },
-        { name: 'Small Business Owner', text: 'best value they ever found' }
+        // { name: 'Brooklyn Bakery', text: 'loves their professional design' },
+        // { name: 'Manhattan Fitness', text: 'got exactly what they needed' },
+        // { name: 'Local Coffee Shop', text: 'got their site in 24 hours' },
+        // { name: 'Bronx Pizza', text: 'loves their mobile-friendly design' },
+        // { name: 'Staten Island Salon', text: 'thrilled with the quality' },
+        // { name: 'NYC Services', text: 'highly recommends our work' },
+        // { name: 'Brooklyn Boutique', text: 'exceeded their expectations' },
+        // { name: 'Small Business Owner', text: 'best value they ever found' }
     ];
     
     const proofContent = document.createElement('div');
