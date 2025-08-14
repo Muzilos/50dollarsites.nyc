@@ -78,34 +78,160 @@ function updateSpotsLeft() {
     spotsElement.textContent = randomSpot;
 }
 
-// Social proof stream
+// ASCII Art Banner
 function initSocialProof() {
     const socialProofDiv = document.getElementById('social-proof');
     if (!socialProofDiv) return;
     
-    const proofs = [
-        // { name: 'Brooklyn Bakery', text: 'loves their professional design' },
-        // { name: 'Manhattan Fitness', text: 'got exactly what they needed' },
-        // { name: 'Local Coffee Shop', text: 'got their site in 24 hours' },
-        // { name: 'Bronx Pizza', text: 'loves their mobile-friendly design' },
-        // { name: 'Staten Island Salon', text: 'thrilled with the quality' },
-        // { name: 'NYC Services', text: 'highly recommends our work' },
-        // { name: 'Brooklyn Boutique', text: 'exceeded their expectations' },
-        // { name: 'Small Business Owner', text: 'best value they ever found' }
+    const asciiArt = [
+        { text: '(⌐■_■)', type: 'cool' },
+        { text: '¯\\_(ツ)_/¯', type: 'shrug' },
+        { text: '(╯°□°)╯︵ ┻━┻', type: 'flip' },
+        { text: '▁▂▃▄▅▆▇█▇▆▅▄▃▂▁', type: 'wave' },
+        { text: '[ ██████████ ] 100%', type: 'loading' },
+        { text: '☆ﾟ.*･｡ﾟ', type: 'sparkle' },
+        { text: '◦•●◉✿◉●•◦', type: 'flower' },
+        { text: '｡◕‿◕｡', type: 'happy' },
+        { text: '(☞ﾟヮﾟ)☞', type: 'point' },
+        { text: '♪┏(・o･)┛♪', type: 'dance' },
+        { text: '┌(ಠ_ಠ)┘', type: 'robot' },
+        { text: '☁ ☾ ☁　˚☽˚　☁ ☾ ☁', type: 'dreamy' },
+        { text: '∞ ∞ ∞ ∞ ∞ ∞ ∞', type: 'infinity' },
+        { text: '◄ ◊ ○ ◊ ► ◄ ◊ ○ ◊ ►', type: 'geometric' },
+        { text: '｡･:*:･ﾟ★,｡･:*:･ﾟ☆', type: 'stars' },
+        { text: '⚡ ⚡ ⚡ ⚡ ⚡', type: 'lightning' },
+        { text: '[>o_]> <[_o<] [>o_]>', type: 'kirby' },
+        { text: '♬♪♫ ♬♪♫ ♬♪♫', type: 'music' },
+        { text: '⟨⟨⟨ ◉ ⟩⟩⟩', type: 'focus' },
+        { text: '◐ ◑ ◒ ◓ ◐ ◑ ◒ ◓', type: 'rotate' }
     ];
     
     const proofContent = document.createElement('div');
     proofContent.className = 'social-proof-content';
     
-    // Duplicate items for seamless loop
-    [...proofs, ...proofs].forEach(proof => {
-        const item = document.createElement('div');
-        item.className = 'proof-item';
-        item.innerHTML = `<strong>${proof.name}</strong> ${proof.text}`;
-        proofContent.appendChild(item);
-    });
+    // Create multiple copies for seamless loop
+    const repeatCount = 3;
+    for (let repeat = 0; repeat < repeatCount; repeat++) {
+        asciiArt.forEach(art => {
+            const item = document.createElement('div');
+            item.className = `proof-item ascii-${art.type}`;
+            item.innerHTML = art.text;
+            proofContent.appendChild(item);
+        });
+    }
     
     socialProofDiv.appendChild(proofContent);
+    
+    // Add random animation speed variation
+    const animationDuration = 8 + Math.random() * 12; // 8-20 seconds
+    proofContent.style.animationDuration = `${animationDuration}s`;
+    
+    // Randomly reverse direction sometimes
+    if (Math.random() < 0.3) {
+        proofContent.style.animationDirection = 'reverse';
+    }
+    
+    // Add periodic special effects
+    setInterval(() => {
+        if (Math.random() < 0.1) { // 10% chance every interval
+            addSpecialEffect(socialProofDiv);
+        }
+    }, 5000);
+    
+    // Add click interaction for instant special effects
+    socialProofDiv.addEventListener('click', () => {
+        addSpecialEffect(socialProofDiv);
+    });
+    
+    // Randomly change animation speed
+    setInterval(() => {
+        if (Math.random() < 0.2) { // 20% chance every 10 seconds
+            const newDuration = 6 + Math.random() * 14; // 6-20 seconds
+            proofContent.style.animationDuration = `${newDuration}s`;
+        }
+    }, 10000);
+}
+
+// Special effects for the ASCII banner
+function addSpecialEffect(container) {
+    const effects = ['glitch', 'rainbow', 'glow', 'shake'];
+    const randomEffect = effects[Math.floor(Math.random() * effects.length)];
+    
+    container.classList.add(`effect-${randomEffect}`);
+    
+    setTimeout(() => {
+        container.classList.remove(`effect-${randomEffect}`);
+    }, 2000);
+    
+    // Add visual feedback
+    const effectIndicator = document.createElement('div');
+    effectIndicator.style.position = 'absolute';
+    effectIndicator.style.top = '10px';
+    effectIndicator.style.left = '20px';
+    effectIndicator.style.background = 'rgba(0, 255, 204, 0.8)';
+    effectIndicator.style.color = '#000';
+    effectIndicator.style.padding = '5px 10px';
+    effectIndicator.style.borderRadius = '15px';
+    effectIndicator.style.fontSize = '0.8rem';
+    effectIndicator.style.fontWeight = 'bold';
+    effectIndicator.style.zIndex = '10';
+    effectIndicator.style.animation = 'fadeInOut 2s ease-in-out';
+    effectIndicator.textContent = `${randomEffect.toUpperCase()} EFFECT!`;
+    
+    container.style.position = 'relative';
+    container.appendChild(effectIndicator);
+    
+    setTimeout(() => {
+        if (container.contains(effectIndicator)) {
+            container.removeChild(effectIndicator);
+        }
+    }, 2000);
+}
+
+// Add matrix rain effect occasionally
+function addMatrixRain() {
+    const socialProofDiv = document.getElementById('social-proof');
+    if (!socialProofDiv || Math.random() > 0.05) return; // 5% chance
+    
+    const matrixChars = '日ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ01';
+    const matrixContainer = document.createElement('div');
+    matrixContainer.style.position = 'absolute';
+    matrixContainer.style.top = '0';
+    matrixContainer.style.left = '0';
+    matrixContainer.style.right = '0';
+    matrixContainer.style.bottom = '0';
+    matrixContainer.style.pointerEvents = 'none';
+    matrixContainer.style.zIndex = '5';
+    matrixContainer.style.opacity = '0.6';
+    
+    for (let i = 0; i < 20; i++) {
+        const column = document.createElement('div');
+        column.style.position = 'absolute';
+        column.style.left = `${Math.random() * 100}%`;
+        column.style.top = '0';
+        column.style.color = '#00ff41';
+        column.style.fontSize = '14px';
+        column.style.fontFamily = 'monospace';
+        column.style.animation = `matrix-fall ${2 + Math.random() * 3}s linear infinite`;
+        column.style.animationDelay = `${Math.random() * 2}s`;
+        
+        let text = '';
+        for (let j = 0; j < 10; j++) {
+            text += matrixChars[Math.floor(Math.random() * matrixChars.length)] + '<br>';
+        }
+        column.innerHTML = text;
+        
+        matrixContainer.appendChild(column);
+    }
+    
+    socialProofDiv.style.position = 'relative';
+    socialProofDiv.appendChild(matrixContainer);
+    
+    setTimeout(() => {
+        if (socialProofDiv.contains(matrixContainer)) {
+            socialProofDiv.removeChild(matrixContainer);
+        }
+    }, 8000);
 }
 
 // Price calculator
@@ -252,22 +378,20 @@ function initGlitchEffect() {
         element.addEventListener('mouseenter', () => {
             element.classList.add('glitching');
             
-            // Keep shake but add glitch fog
+            // Original glitch fog effect
             const titleLines = element.querySelectorAll('.glitch-text, .glitch-text-alt');
             titleLines.forEach((line, index) => {
-                const delay = index === 1 ? '0.1s' : '';
-                line.style.animation = `shake 0.2s infinite ${delay}, glitchFog 0.3s ease infinite`;
+                line.style.animation = `glitchFog 0.3s ease infinite`;
             });
         });
         
         element.addEventListener('mouseleave', () => {
             element.classList.remove('glitching');
             
-            // Restore normal shake
+            // Remove any animation on mouse leave
             const titleLines = element.querySelectorAll('.glitch-text, .glitch-text-alt');
-            titleLines.forEach((line, index) => {
-                const delay = index === 1 ? '0.1s' : '';
-                line.style.animation = `shake 0.5s infinite ${delay}`;
+            titleLines.forEach((line) => {
+                line.style.animation = '';
             });
         });
     });
@@ -385,6 +509,111 @@ style.textContent = `
     .hamburger.active span:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
     }
+    
+    @keyframes hypnoticBreathe {
+        0% {
+            transform: scale(1) rotate(0deg);
+            filter: hue-rotate(0deg) saturate(1.2) brightness(1);
+        }
+        25% {
+            transform: scale(1.02) rotate(0.5deg);
+            filter: hue-rotate(60deg) saturate(1.4) brightness(1.05);
+        }
+        50% {
+            transform: scale(1.05) rotate(0deg);
+            filter: hue-rotate(120deg) saturate(1.6) brightness(1.1);
+        }
+        75% {
+            transform: scale(1.02) rotate(-0.5deg);
+            filter: hue-rotate(180deg) saturate(1.4) brightness(1.05);
+        }
+        100% {
+            transform: scale(1) rotate(0deg);
+            filter: hue-rotate(240deg) saturate(1.2) brightness(1);
+        }
+    }
+
+    @keyframes auroraBorealis {
+        0% {
+            text-shadow: 
+                0 0 10px rgba(138, 43, 226, 0.8),
+                0 0 20px rgba(138, 43, 226, 0.6),
+                0 0 30px rgba(138, 43, 226, 0.4);
+        }
+        20% {
+            text-shadow: 
+                0 0 10px rgba(75, 0, 130, 0.8),
+                0 0 20px rgba(75, 0, 130, 0.6),
+                0 0 30px rgba(75, 0, 130, 0.4),
+                0 0 40px rgba(75, 0, 130, 0.2);
+        }
+        40% {
+            text-shadow: 
+                0 0 10px rgba(0, 100, 200, 0.8),
+                0 0 20px rgba(0, 100, 200, 0.6),
+                0 0 30px rgba(0, 100, 200, 0.4),
+                0 0 40px rgba(0, 100, 200, 0.2);
+        }
+        60% {
+            text-shadow: 
+                0 0 10px rgba(0, 150, 150, 0.8),
+                0 0 20px rgba(0, 150, 150, 0.6),
+                0 0 30px rgba(0, 150, 150, 0.4),
+                0 0 40px rgba(0, 150, 150, 0.2);
+        }
+        80% {
+            text-shadow: 
+                0 0 10px rgba(100, 200, 100, 0.8),
+                0 0 20px rgba(100, 200, 100, 0.6),
+                0 0 30px rgba(100, 200, 100, 0.4),
+                0 0 40px rgba(100, 200, 100, 0.2);
+        }
+        100% {
+            text-shadow: 
+                0 0 10px rgba(138, 43, 226, 0.8),
+                0 0 20px rgba(138, 43, 226, 0.6),
+                0 0 30px rgba(138, 43, 226, 0.4);
+        }
+    }
+
+    @keyframes floatingDream {
+        0% {
+            transform: translateY(0px) translateX(0px);
+        }
+        25% {
+            transform: translateY(-2px) translateX(1px);
+        }
+        50% {
+            transform: translateY(-1px) translateX(-1px);
+        }
+        75% {
+            transform: translateY(1px) translateX(0px);
+        }
+        100% {
+            transform: translateY(0px) translateX(0px);
+        }
+    }
+
+    @keyframes subtleGlitchRest {
+        0%, 90%, 100% {
+            text-shadow: 
+                1px 1px 0px rgba(255, 0, 100, 0.7),
+                -1px -1px 0px rgba(0, 255, 255, 0.7),
+                0px 0px 5px rgba(255, 255, 255, 0.3);
+        }
+        93% {
+            text-shadow: 
+                -1px 1px 0px rgba(255, 0, 100, 0.8),
+                1px -1px 0px rgba(0, 255, 255, 0.8),
+                0px 0px 8px rgba(255, 255, 255, 0.4);
+        }
+        96% {
+            text-shadow: 
+                1px -1px 0px rgba(255, 0, 100, 0.6),
+                -1px 1px 0px rgba(0, 255, 255, 0.6),
+                0px 0px 3px rgba(255, 255, 255, 0.2);
+        }
+    }
 `;
 document.head.appendChild(style);
 
@@ -406,6 +635,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update spots occasionally
     updateSpotsLeft();
     setInterval(updateSpotsLeft, 30000);
+    
+    // Occasionally trigger matrix rain effect
+    setInterval(() => {
+        addMatrixRain();
+    }, 15000); // Check every 15 seconds
 });
 
 // Performance optimization - lazy load images
